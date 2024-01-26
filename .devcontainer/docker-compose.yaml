@@ -15,3 +15,16 @@ services:
       - 10000-10010:10000-10010
     environment:
       - DBNAME=sports2020    
+  sports2020-pas:
+    image: docker.io/devbfvio/sports2020-pas:12.8.0-dev
+    volumes:
+      - c:/docker/license/oe-12.8/progress.cfg:/usr/dlc/progress.cfg
+      - c:/docker/openedge-devcontainer/src:/app/src
+      - c:/docker/openedge-devcontainer/as.pf:/app/pas/as.pf
+    ports:
+      - 8810:8810
+    environment:
+      - PASWEBHANDLERS="/app/src/webhandlers/ROOT.handlers"
+    depends_on:
+      - sports2020-db
+    
