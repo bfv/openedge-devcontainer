@@ -1,7 +1,7 @@
 
 var File f = new File("hello.p").
 
-var int i = 0.  // set to 20 for debugging (if that works...)
+var int i = 30.  // set to 20 for debugging (if that works...)
 
 waitblock:
 do while i > 0:
@@ -20,7 +20,6 @@ def var p as Person no-undo.
 p = new Person().
 message p:Hello().
 delete object p. 
-
 
 message f:ToString().
 delete object f.

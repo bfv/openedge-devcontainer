@@ -43,7 +43,7 @@
 		"PROPATH": "./src,./bin"
 	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [3099, 9995, 9996, 9997, 9998, 9999],
+	"forwardPorts": [ 3099 ],
 
 	// Use 'portsAttributes' to set default properties for specific forwarded ports. 
 	// More info: https://containers.dev/implementors/json_reference/#port-attributes

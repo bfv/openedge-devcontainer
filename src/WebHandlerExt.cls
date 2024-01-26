@@ -161,7 +161,7 @@ class WebHandlerExt inherits WebHandler:
     
     return this-object.
     
-  end method.  // addHeaders
+  end method.  // addHeaders 
   
   
   method private WebHandlerExt addQueryParameters(request as IWebRequest, json as JsonObject):
@@ -388,8 +388,6 @@ class WebHandlerExt inherits WebHandler:
       json:Add('openedge', oeJson).
     end.
 
-    // json:Add('whoami', "Gilles").
-    
     response:Entity = json.
     
     return response.

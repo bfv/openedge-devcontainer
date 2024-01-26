@@ -6,6 +6,8 @@ services:
     image: docker.io/devbfvio/openedge-devcontainer:12.8.0-rc1
     volumes:
       - ../..:/workspaces:cached
+    ports:
+      - 3099:3099
     command: sleep infinity
   sports2020-db:
     image: docker.io/devbfvio/sports2020-db:12.8.0
