@@ -1,3 +1,5 @@
 .builder/
 bin/
 test-container/
+
+.env

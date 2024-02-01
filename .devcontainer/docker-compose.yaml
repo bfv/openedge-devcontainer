@@ -9,6 +9,7 @@ services:
     ports:
       - 3099:3099
     command: sleep infinity
+
   sports2020-db:
     image: docker.io/devbfvio/sports2020-db:12.8.0
     volumes:
@@ -17,11 +18,12 @@ services:
       - 10000-10010:10000-10010
     environment:
       - DBNAME=sports2020    
+      
   sports2020-pas:
     image: docker.io/devbfvio/sports2020-pas:12.8.0-dev
     volumes:
       - c:/docker/license/oe-12.8/progress.cfg:/usr/dlc/progress.cfg
-      - c:/docker/openedge-devcontainer/src:/app/src
+      - c:/docker/openedge-devcontainer:/app/src
       - c:/docker/openedge-devcontainer/as.pf:/app/pas/as.pf
     ports:
       - 8810:8810

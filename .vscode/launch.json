@@ -10,8 +10,9 @@
             "request": "attach",
             "hostname": "localhost",
             "mode": "legacy",
-            "port": 3099
-            // "localRoot": "${workspaceFolder}",
+            "port": 3099,
+            "localRoot": "${workspaceFolder}",
+            "pauseOnAttach": true
             // "remoteRoot": "${workspaceFolder}",
             // "sourceMap": {
             //     "${workspaceFolder}/**": "${workspaceFolder}/**"

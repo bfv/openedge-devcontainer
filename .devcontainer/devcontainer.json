@@ -23,14 +23,14 @@
 		// Configure properties specific to VS Code.
 		"vscode": {
 			"settings": {
-				"abl.configuration.runtimes.default": "ESAP",
+				"abl.configuration.runtimes.default": "12.8",
 				"abl.configuration.runtimes": [
 					{ "name": "12.8", "path": "/usr/dlc" }
 				],
 				"abl.langServerJavaExecutable": "/opt/java/openjdk/bin/java"
 			},
 			"extensions": [
-				"riversidesoftware.openedge-abl-lsp",
+				"riversidesoftware.openedge-abl-lsp@prerelease",
 				"ms-azuretools.vscode-docker",
 				"formulahendry.code-runner"
 			]
@@ -45,6 +45,10 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [ 3099 ],
 
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {}
+	},
+
 	// Use 'portsAttributes' to set default properties for specific forwarded ports. 
 	// More info: https://containers.dev/implementors/json_reference/#port-attributes
 	// "portsAttributes": {
@@ -55,7 +59,9 @@
 	// },
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "proDebugEnable -enable-all"
+	"initializeCommand": "echo Initialize....",
+	"postCreateCommand": "proDebugEnable -enable-all",
+	"shutdownAction": "none"
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
