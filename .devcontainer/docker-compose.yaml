@@ -3,32 +3,33 @@ version: '3.8'
 services:
 
   devcontainer:
-    image: docker.io/devbfvio/openedge-devcontainer:12.8.0-rc1
+    image: ${DEVCONTAINER_IMAGE}
     volumes:
       - ../..:/workspaces:cached
+      - ${PROGRESS_CFG}:/usr/dlc/progress.cfg
     ports:
-      - 3099:3099
+      - ${DEBUG_PORT}:3099
     command: sleep infinity
 
   sports2020-db:
-    image: docker.io/devbfvio/sports2020-db:12.8.0
+    image: ${DB_IMAGE}
     volumes:
-      - c:/docker/license/oe-12.8/oe128-db-dev-progress.cfg:/usr/dlc/progress.cfg
+      - ${PROGRESS_CFG}:/usr/dlc/progress.cfg
     ports:
       - 10000-10010:10000-10010
     environment:
       - DBNAME=sports2020    
       
   sports2020-pas:
-    image: docker.io/devbfvio/sports2020-pas:12.8.0-dev
+    image: ${PAS_IMAGE}
     volumes:
-      - c:/docker/license/oe-12.8/progress.cfg:/usr/dlc/progress.cfg
-      - c:/docker/openedge-devcontainer:/app/src
-      - c:/docker/openedge-devcontainer/as.pf:/app/pas/as.pf
+      - ${PROGRESS_CFG}:/usr/dlc/progress.cfg
+      - ../src:/app/src
+      - ../as.pf:/app/pas/as.pf
     ports:
-      - 8810:8810
+      - ${PAS_PORT}:8810
     environment:
-      - PASWEBHANDLERS="/app/src/webhandlers/ROOT.handlers"
+      - PASWEBHANDLERS=/app/src/webhandlers/ROOT.handlers
     depends_on:
       - sports2020-db
     

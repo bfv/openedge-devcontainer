@@ -2,21 +2,15 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
 	"name": "OpenEdge Dev Containers PoC",
-	// Docker compose
 	"dockerComposeFile": "docker-compose.yaml",
 	"service": "devcontainer",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	//
-	// Docker only
-	// "image": "docker.io/devbfvio/openedge-devcontainer:12.8.0-rc1",
-	// "build": {
-    //     // Path is relative to the devcontainer.json file.
-    //     "dockerfile": "Dockerfile"
-		
-    // },
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+	},
 
 	// Configure tool-specific properties.
 	"customizations": {
@@ -27,27 +21,26 @@
 				"abl.configuration.runtimes": [
 					{ "name": "12.8", "path": "/usr/dlc" }
 				],
-				"abl.langServerJavaExecutable": "/opt/java/openjdk/bin/java"
+				"abl.langServerJavaExecutable": "/opt/java/openjdk/bin/java",
+        "abl.buildMode": 1,
+        "code-runner.executorMap.abl": "_progres -b -pf .devcontainer/devcontainer.pf -p ${file}",
+        "code-runner.languageIdToFileExtensionMap": {
+          "abl": [".p", ".cls"]
+        }
 			},
 			"extensions": [
 				"riversidesoftware.openedge-abl-lsp@prerelease",
-				"ms-azuretools.vscode-docker",
 				"formulahendry.code-runner"
 			]
 		}
 	},
 	"mounts": [
-		"source=c:/docker/license/oe-12.8/oe128-db-dev-progress.cfg,target=/usr/dlc/progress.cfg,type=bind,consistency=cached"
 	],
 	"containerEnv": {
 		"PROPATH": "./src,./bin"
 	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [ 3099 ],
-
-	"features": {
-		"ghcr.io/devcontainers/features/git:1": {}
-	},
 
 	// Use 'portsAttributes' to set default properties for specific forwarded ports. 
 	// More info: https://containers.dev/implementors/json_reference/#port-attributes

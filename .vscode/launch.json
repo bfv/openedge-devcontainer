@@ -12,7 +12,7 @@
             "mode": "legacy",
             "port": 3099,
             "localRoot": "${workspaceFolder}",
-            "pauseOnAttach": true
+            //"pauseOnAttach": true
             // "remoteRoot": "${workspaceFolder}",
             // "sourceMap": {
             //     "${workspaceFolder}/**": "${workspaceFolder}/**"

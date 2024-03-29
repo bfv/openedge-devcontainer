@@ -65,10 +65,10 @@ class WebHandlerExt inherits WebHandler:
       when '/persistentcookie' then
         response = this-object:processCookie(request, true).
       
-      when '/customer' then
+      when '/customers' then
         response = this-object:processCustomer(request, false).
              
-      when '/customercache' then
+      when '/customerscache' then
         response = this-object:processCustomer(request, true).
       
       when '/propath' then
@@ -611,12 +611,8 @@ class WebHandlerExt inherits WebHandler:
   
   
   method private character urlDecode(urlEntry as character):
-    
-    // for now just the spaces
     urlEntry = replace(urlEntry, '%20', ' ').
-    
     return urlEntry.
-    
   end method.  // urlDecode
   
   

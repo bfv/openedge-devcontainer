@@ -1,5 +1,7 @@
 .builder/
 bin/
-test-container/
 
-.env
+# .env
+progress.cfg
+
+*.r
