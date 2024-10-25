@@ -32,4 +32,10 @@ services:
       - PASWEBHANDLERS=/app/src/webhandlers/ROOT.handlers
     depends_on:
       - sports2020-db
+
+  plantuml:
+    image: plantuml/plantuml-server
+    ports:
+      - 8080:8080
+
     

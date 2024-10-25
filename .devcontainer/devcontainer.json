@@ -26,11 +26,16 @@
         "code-runner.executorMap.abl": "_progres -b -pf .devcontainer/devcontainer.pf -p ${file}",
         "code-runner.languageIdToFileExtensionMap": {
           "abl": [".p", ".cls"]
-        }
+        },
+				"plantuml.diagramsRoot": "doc/uml",
+				"plantuml.exportFormat": "png",
+				"plantuml.server": "http://plantuml:8080/",
+				"plantuml.render": "PlantUMLServer"
 			},
 			"extensions": [
 				"riversidesoftware.openedge-abl-lsp@prerelease",
-				"formulahendry.code-runner"
+				"formulahendry.code-runner",
+				"jebbs.plantuml"
 			]
 		}
 	},
