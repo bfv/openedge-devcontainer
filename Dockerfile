@@ -7,6 +7,11 @@ USER root
 RUN apt-get update && apt-get install -y xz-utils
 RUN apt-get install git -y
 RUN apt-get install vim -y
+RUN apt-get install curl -y
+RUN apt-get install wget -y
+RUN apt-get install iputils-ping -y
+RUN apt-get install net-tools -y
+RUN apt-get install dnsutils -y
 
 ENV JAVA_HOME=/opt/java/openjdk
 ENV DLC=/usr/dlc
