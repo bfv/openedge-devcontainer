@@ -25,7 +25,7 @@ services:
     volumes:
       - ${PROGRESS_CFG}:/usr/dlc/progress.cfg
       - ../src:/app/src
-      - ../as.pf:/app/pas/as.pf
+      - ../as.pf:/app/config/as.pf
     ports:
       - ${PAS_PORT}:8810
     environment:

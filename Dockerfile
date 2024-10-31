@@ -18,6 +18,4 @@ ENV DLC=/usr/dlc
 ENV WRKDIR=/usr/wrk
 ENV PATH=$DLC:$DLC/bin:$PATH
 
-USER openedge
-
-# this script is build as docker.io/devbfvio/openedge-devcontainer:12.8.1-rc1
+# this script is build as docker.io/devbfvio/openedge-devcontainer:12.8.4
