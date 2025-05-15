@@ -1,6 +1,6 @@
 # the Dockerfile for the actual devcontainer
 
-FROM docker.io/devbfvio/openedge-compiler:12.8.7
+FROM docker.io/devbfvio/openedge-compiler:12.8.7-dotnet8
 
 USER root
 
@@ -8,7 +8,7 @@ USER root
 # and the openedge user needs to be able to write there
 RUN mkdir -p /home/openedge && \
     chown openedge:openedge /home/openedge
-
+    
 RUN apt-get update && apt-get install -y xz-utils
 RUN apt-get install git -y
 RUN apt-get install vim -y
@@ -18,6 +18,10 @@ ENV JAVA_HOME=/opt/java/openjdk
 ENV DLC=/usr/dlc
 ENV WRKDIR=/usr/wrk
 ENV PATH=$DLC:$DLC/bin:$PATH
+
+RUN echo "\n# custom entries:" >> /usr/dlc/startup.pf && \ 
+    echo "-clrnetcore" >> /usr/dlc/startup.pf && \
+    echo "-preloadCLR" >> /usr/dlc/startup.pf
 
 USER openedge
 
