@@ -47,3 +47,6 @@ curl http://localhost:8810/web/api/customers
 
 ## .NET
 As of 12.8.6.1 .NET 8 is standard part of the devcontainer. More so, it is enabled via the `-clrnetcore` parameter in `/usr/dlc/startup.pf`
+
+As of 12.8.9.2 .NET 10 is standard part of the devcontainer.
+
