@@ -1,11 +1,10 @@
-version: '3.8'
-
 services:
 
   devcontainer:
     image: ${DEVCONTAINER_IMAGE}
     volumes:
       - ../..:/workspaces:cached
+      - /var/run/docker.sock:/var/run/docker.sock
       - ${PROGRESS_CFG}:/usr/dlc/progress.cfg
     ports:
       - ${DEBUG_PORT}:3099

@@ -44,3 +44,6 @@ To check if everything works, on the host:
 curl http://localhost:8810/web/api/get
 curl http://localhost:8810/web/api/customers
 ```
+
+## .NET
+As of 12.8.6.1 .NET 8 is standard part of the devcontainer. More so, it is enabled via the `-clrnetcore` parameter in `/usr/dlc/startup.pf`
