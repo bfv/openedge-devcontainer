@@ -33,6 +33,6 @@ RUN echo "\n# custom entries:" >> /usr/dlc/startup.pf && \
 
 RUN /usr/dlc/bin/proDebugEnable -enable-all
 
-#USER openedge
+USER openedge
 
 # this script is build as docker.io/devbfvio/openedge-devcontainer:12.8.9.1
