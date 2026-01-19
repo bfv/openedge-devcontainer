@@ -2,6 +2,7 @@ services:
 
   devcontainer:
     image: ${DEVCONTAINER_IMAGE}
+    pull_policy: always
     volumes:
       - ../..:/workspaces:cached
       - /var/run/docker.sock:/var/run/docker.sock
