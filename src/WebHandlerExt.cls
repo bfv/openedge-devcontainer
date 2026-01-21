@@ -277,6 +277,7 @@ class WebHandlerExt inherits WebHandler:
       :addPathParameters(request, json)
       :addPropath(request, json)
       :addVersion(request, json)
+      :addDotnetVersion(json)
       :addCurrentRequestInfo(request, json)
       .
 
@@ -285,6 +286,16 @@ class WebHandlerExt inherits WebHandler:
   end method.  // addOpenEdgeInformation
   
   
+  method private WebHandlerExt addDotnetVersion(json as JsonObject):
+
+    var char dotnet = System.Environment:Version:ToString().
+    json:Add("dotnet", dotnet).
+
+    return this-object.
+
+  end method. 
+
+
   method private WebHandlerExt addStandardHttp(request as IWebRequest, json as JsonObject):
     
     define variable local as JsonObject no-undo.

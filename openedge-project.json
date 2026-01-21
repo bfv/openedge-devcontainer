@@ -4,7 +4,7 @@
     "oeversion": "12.8",
     "graphicalMode": false,
     "charset": "utf-8",
-    "extraParameters": "",
+    "extraParameters": "-clrnetcore",
     "buildPath": [
         { "type": "source", "path": "./src" },
         { "type": "propath", "path": "." },

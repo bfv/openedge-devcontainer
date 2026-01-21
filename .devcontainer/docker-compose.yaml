@@ -30,6 +30,7 @@ services:
       - ${PAS_PORT}:8810
     environment:
       - PASWEBHANDLERS=/app/src/webhandlers/ROOT.handlers
+    command: /app/pas/start.sh
     depends_on:
       - sports2020-db
 
