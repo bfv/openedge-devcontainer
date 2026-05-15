@@ -4,8 +4,8 @@ services:
     image: ${DEVCONTAINER_IMAGE}
     pull_policy: always
     volumes:
-      - ../..:/workspaces:cached
-      - /var/run/docker.sock:/var/run/docker.sock
+      - ../..:/workspaces:Z
+#      - /var/run/docker.sock:/var/run/docker.sock
       - ${PROGRESS_CFG}:/usr/dlc/progress.cfg
     ports:
       - ${DEBUG_PORT}:3099
