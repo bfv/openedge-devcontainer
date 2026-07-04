@@ -1,6 +1,6 @@
 # the Dockerfile for the actual devcontainer
 
-FROM docker.io/devbfvio/openedge-compiler:12.8.9.1-dotnet10
+FROM docker.io/devbfvio/openedge-compiler:12.8.11-dotnet10
 
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
@@ -9,15 +9,20 @@ ENV DEBIAN_FRONTEND=noninteractive
 # and the openedge user needs to be able to write there
 RUN mkdir -p /home/openedge && \
     chown openedge:openedge /home/openedge
-    
+
+RUN rm -f /etc/protocols 
+
+RUN apt-get update && apt-get install -y software-properties-common 
+RUN add-apt-repository -y ppa:git-core/ppa 
+
 RUN apt-get update -y && apt install -y xz-utils 
-RUN apt-get install -y ca-certificates gnupg git --fix-missing -v
-RUN apt-get install vim -y --fix-missing -v
+RUN apt-get install -y ca-certificates gnupg git --fix-missing 
+RUN apt-get install vim -y --fix-missing 
 RUN apt-get install curl wget iputils-ping net-tools dnsutils -y
 
 RUN apt-get -o Dpkg::Options::="--force-confold" install -y netbase iptables && \
     apt-get clean -y
-    
+
 RUN rm -rf /var/lib/apt/lists/*
 
 ENV JAVA_HOME=/opt/java/openjdk
