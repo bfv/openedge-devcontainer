@@ -1,6 +1,6 @@
 # the Dockerfile for the actual devcontainer
 
-FROM docker.io/devbfvio/openedge-compiler:12.8.11-dotnet10
+FROM docker.io/devbfvio/openedge-compiler:13.0.0-dotnet10
 
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
