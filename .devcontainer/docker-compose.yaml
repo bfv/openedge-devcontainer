@@ -4,8 +4,7 @@ services:
     image: ${DEVCONTAINER_IMAGE}
     pull_policy: always
     volumes:
-      - ../..:/workspaces:cached
-      - /var/run/docker.sock:/var/run/docker.sock
+      - ../:/workspaces/content
       - ${PROGRESS_CFG}:/usr/dlc/progress.cfg
     ports:
       - ${DEBUG_PORT}:3099
@@ -14,7 +13,7 @@ services:
   sports2020-db:
     image: ${DB_IMAGE}
     volumes:
-      - ${PROGRESS_CFG}:/usr/dlc/progress.cfg
+      - ${PROGRESS_CFG_128}:/usr/dlc/progress.cfg
     ports:
       - 10000-10010:10000-10010
     environment:
@@ -23,7 +22,7 @@ services:
   sports2020-pas:
     image: ${PAS_IMAGE}
     volumes:
-      - ${PROGRESS_CFG}:/usr/dlc/progress.cfg
+      - ${PROGRESS_CFG_128}:/usr/dlc/progress.cfg
       - ../src:/app/src
       - ../as.pf:/app/config/as.pf
     ports:
